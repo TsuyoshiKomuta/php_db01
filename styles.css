@@ -1,0 +1,390 @@
+/* styles.css */
+
+/* ヘッダーのCSS */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.login-button,
+.signup-button,
+.logout-button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.login-button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #e8e8e8;
+}
+
+.signup-button {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login-button:hover {
+    background-color: #e8e8e8;
+}
+
+.signup-button:hover {
+    background-color: #0056b3;
+}
+
+.logout-button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #e8e8e8;
+}
+
+.logout-button:hover {
+    background-color: #e8e8e8;
+}
+
+/* メインコンテンツのCSS */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    /* 家族図の高さを調整 */
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    /* 余白を調整 */
+}
+
+.circle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-size: 1.2em;
+    color: #000;
+    border: 2px solid black;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
+
+.circle.label {
+    position: absolute;
+    bottom: -20px;
+    /* 名前の位置を調整 */
+    font-size: 0.8em;
+    /* 名前のフォントサイズを小さく */
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* アイコン画像の設定 */
+.a-person {
+    background-image: url("images/a_person.png");
+}
+
+.b-person {
+    background-image: url('images/b_person.png');
+}
+
+.c-person {
+    background-image: url('images/c_person.png');
+}
+
+.d-person {
+    background-image: url('images/d_person.png');
+}
+
+.e-person {
+    background-image: url('images/e_person.png');
+}
+
+.f-person {
+    background-image: url('images/f_person.png');
+}
+
+.highlight-third {
+    border: 6px solid #e8e8e8;
+}
+
+.highlight-decedent {
+    border: 6px solid skyblue;
+}
+
+.highlight-heir {
+    border: 6px solid greenyellow;
+}
+
+.line {
+    height: 50px;
+    border-left: 2px solid black;
+    margin: 0 -25px;
+    /* マージンを調整 */
+}
+
+.line-horizontal {
+    width: 80px;
+    /* 横線の幅を80pxに変更 */
+    border-top: 2px solid black;
+    margin: 0 25px;
+}
+
+.marriage {
+    width: 80px;
+    height: 6px;
+    position: relative;
+    margin: 0 25px;
+}
+
+.marriage::before,
+.marriage::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+.marriage::before {
+    top: 0;
+    /* 上端に配置 */
+}
+
+.marriage::after {
+    top: 4px;
+    /* 二本の線を作成するための位置 */
+}
+
+.dotted-line {
+    width: 80px;
+    /* 横線の幅を80pxに変更 */
+    border-top: 2px dotted black;
+    margin: 0 25px;
+    position: relative;
+}
+
+.with-vertical-line::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 2px;
+    height: 100px;
+    /* 縦線の長さを調整 */
+    background-color: black;
+}
+
+.with-vertical-line {
+    position: relative;
+}
+
+.spacer {
+    flex: 1;
+    width: 100px;
+    height: 100px;
+}
+
+p {
+    margin: 10px 0px;
+}
+
+/* 詳細情報のCSS */
+.details {
+    display: none;
+    /* 初期状態では非表示 */
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 0.5px solid #c8c8c8;
+    padding: 20px;
+    background-color: #f5f5f5;
+    width: 85%;
+    max-width: 500px;
+    height: 45%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+/* エラーメッセージ */
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+/* ドラッグ中のスタイル */
+.draggable {
+    position: absolute !important;
+    width: 85% !important;
+    max-width: 500px !important;
+    height: 45%;
+    cursor: move;
+}
+
+/* フォームのスタイル */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form .asset {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+form .asset label {
+    flex: 1;
+    margin-right: 10px;
+}
+
+form .asset input[type="number"],
+form .asset input[type="text"],
+form .asset input[type="date"] {
+    flex: 2;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form .asset select {
+    flex: 2;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: center;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* フッターのスタイル */
+footer {
+    background-color: #f5f5f5;
+    color: #00acee;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+/* 円形メニューのCSS */
+.circular-menu {
+    position: absolute;
+    display: none;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: 1000;
+    /* 円形メニューを前面に表示 */
+    pointer-events: none;
+    /* メニューの外側をクリックできるようにする */
+}
+
+.menu-item {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    pointer-events: all;
+    /* メニューアイテムをクリック可能にする */
+}
+
+#menu-details {
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+#menu-input {
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+#menu-family {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
